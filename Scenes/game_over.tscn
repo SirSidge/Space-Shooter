@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfw3xhva68ufb"]
+
+[ext_resource type="FontFile" uid="uid://b1ue5g5fsjbb1" path="res://Audio/kenvector_future.ttf" id="1_72r1c"]
+[ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_yugyc"]
+[ext_resource type="AudioStream" uid="uid://dyoj34jque5wg" path="res://Audio/sfx_lose.ogg" id="3_7500s"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yugyc")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.227451, 0.180392, 0.247059, 1)
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_72r1c")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_72r1c")
+theme_override_font_sizes/font_size = 25
+text = "SCORE: 0"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -40.0
+offset_right = 116.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_72r1c")
+theme_override_font_sizes/font_size = 20
+text = "PRESS SPACE TO START AGAIN"
+
+[node name="EndGameSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7500s")
